@@ -7,9 +7,10 @@ import pinLayer from './layers/pinLayer';
 import geojsonLayer from './layers/geojsonLayer';
 import tileLayer from './layers/tileLayer';
 
+
 const map = new Map({
   target: 'map',
-  layers: [tileLayer, pinLayer, geojsonLayer],
+  layers: [tileLayer, geojsonLayer, pinLayer],
   view: new View({
     center: [0, 0],
     zoom: 2,

@@ -1,3 +1,11 @@
+import { fromLonLat } from 'ol/proj';         // For converting coordinates
+import Feature from 'ol/Feature';              // For creating features
+import Point from 'ol/geom/Point';            // For defining point geometry
+import { Style, Fill, Stroke } from 'ol/style'; // For styling features
+import Icon from 'ol/style/Icon';              // For defining icons
+import pinLayer from './layers/pinLayer';      // Import the pin layer (assuming it's defined separately)
+
+
 function getRandomCoordinates() {
     // Latitude between -50° and +50° (to avoid too far south or north)
     const latitude = (Math.random() * 100 - 50).toFixed(6); // Between -50 and +50 with 6 decimal places
@@ -19,14 +27,13 @@ function spawnRandomPins() {
 
     const pinStyle = new Style({
         image: new Icon({
-            src: 'images/pin1.png',  // Example pin icon
+            src: 'assets/images/pin1.png',  // Example pin icon
             scale: .1,  // Adjust size of the icon
         }),
     });
 
     newPinFeature.setStyle(pinStyle);
-    const vectorLayer = map.getLayers().getArray()[1]; // Get the vector layer
-    const pinsArray = vectorLayer.getSource();
+    const pinsArray = pinLayer.getSource();
     pinsArray.addFeature(newPinFeature);
 }
 
