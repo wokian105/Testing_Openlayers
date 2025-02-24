@@ -4,7 +4,7 @@ import GeoJSON from 'ol/format/GeoJSON';
 
 const geojsonLayer = new VectorLayer({
     source: new VectorSource({
-        url: 'assets/converted_geojson.json', // Use the new file here
+        url: 'assets/countries.json', // Use the new file here
         format: new GeoJSON(),
     })
 });

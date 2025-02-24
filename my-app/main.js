@@ -17,8 +17,6 @@ const map = new Map({
   }),
 });
 
-
-
 // highlight country
 map.on('click', (event) => {
   unhighlightAllFeatures(geojsonLayer)
@@ -32,6 +30,8 @@ map.on('click', (event) => {
         color: 'rgba(30, 144, 255, 0.15)', // Highlight with red fill
       }),
     }));
+	document.getElementById("countryInfo").hidden=false;
+	document.getElementById("countryName").textContent=feature.get("ADMIN");
   })
 });
 
@@ -40,4 +40,5 @@ function unhighlightAllFeatures(vectorLayer) {
   source.getFeatures().forEach((feature) => {
     feature.setStyle(null); // Reset to default style
   });
+  document.getElementById("countryInfo").hidden=true;
 }
